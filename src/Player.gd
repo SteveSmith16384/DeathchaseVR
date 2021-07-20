@@ -31,7 +31,8 @@ func accelerate():
 func brake():
 	accel = false
 	pass
-	
+
+
 func _on_RemovalArea_body_shape_exited(body_id, body, body_shape, local_shape):
 	emit_signal("entity_left_area", body)
 	pass

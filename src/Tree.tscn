@@ -12,5 +12,5 @@ shape = SubResource( 1 )
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0 )
-billboard = 1
+billboard = 2
 texture = ExtResource( 1 )

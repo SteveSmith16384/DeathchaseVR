@@ -84,8 +84,9 @@ func _webxr_session_started() -> void:
 	# work a little differently in 'bounded-floor' versus 'local-floor'.
 	print ("Reference space type: " + webxr_interface.reference_space_type)
 
-	controller = webxr_interface.get_controller(1)
+	controller = webxr_interface.get_controller(2)
 	pass 
+
 
 func _webxr_session_ended() -> void:
 	$Button.visible = true
@@ -125,8 +126,19 @@ func _process(delta: float) -> void:
  
 	if thumbstick_vector != Vector2.ZERO:
 		print ("Left thumbstick position: " + str(thumbstick_vector))
+		
+#	position_label($Label, Vector3(0, 1, 5))
+	pass
  
 
+func position_label(label:Label, point3D:Vector3):
+	var camera = $ARVROrigin/ARVRCamera
+	var cam_pos = camera.translation
+	var offset = Vector2(label.get_size().x/2, 0)
+	label.rect_position = camera.unproject_position(point3D) - offset
+	pass
+
+	
 func _webxr_on_select(controller_id: int) -> void:
 	print("Select: " + str(controller_id))
  
@@ -159,8 +171,11 @@ func _webxr_on_squeeze_start(controller_id: int) -> void:
 
 func _webxr_on_squeeze_end(controller_id: int) -> void:
 	print("Squeeze End: " + str(controller_id))
-
-
-func get_controller_orientation():
-	return self.controller_orientation
+	pass
 	
+
+func get_controller_orientation() -> Basis:
+#	if controller_orientation:
+#		return self.controller_orientation
+#	return null
+	return $ARVROrigin/RightController/MeshInstance.global_transform.basis
