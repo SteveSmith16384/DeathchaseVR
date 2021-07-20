@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://vr/VRMain.gd" type="Script" id=1]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 0.1, 0.1, 0.1 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 0.1, 0.1, 0.1 )
+
+[sub_resource type="Environment" id=3]
+
+[node name="VRMain" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 10.0
+margin_right = 97.0
+margin_bottom = 40.0
+text = "enter vr"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ARVROrigin" type="ARVROrigin" parent="."]
+
+[node name="ARVRCamera" type="ARVRCamera" parent="ARVROrigin"]
+
+[node name="LeftController" type="ARVRController" parent="ARVROrigin"]
+
+[node name="MeshInstance" type="MeshInstance" parent="ARVROrigin/LeftController"]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="RightController" type="ARVRController" parent="ARVROrigin"]
+controller_id = 2
+
+[node name="MeshInstance" type="MeshInstance" parent="ARVROrigin/RightController"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
