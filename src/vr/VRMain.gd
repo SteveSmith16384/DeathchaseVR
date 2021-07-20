@@ -1,7 +1,13 @@
 extends Spatial
- 
+
+signal controller_pressed
+signal controller_released
+
 var webxr_interface
 var vr_supported = false
+
+var controller_orientation : Basis
+var controller: ARVRPositionalTracker
  
 func _ready() -> void:
 	$Button.connect("pressed", self, "_on_Button_pressed")
@@ -77,7 +83,9 @@ func _webxr_session_started() -> void:
 	# types that you requested above. This is useful if you want the game to
 	# work a little differently in 'bounded-floor' versus 'local-floor'.
 	print ("Reference space type: " + webxr_interface.reference_space_type)
- 
+
+	controller = webxr_interface.get_controller(1)
+	pass 
 
 func _webxr_session_ended() -> void:
 	$Button.visible = true
@@ -122,21 +130,24 @@ func _process(delta: float) -> void:
 func _webxr_on_select(controller_id: int) -> void:
 	print("Select: " + str(controller_id))
  
-	var controller: ARVRPositionalTracker = webxr_interface.get_controller(controller_id)
-	print ("Orientation: " + str(controller.get_orientation()))
-	print ("Position: " + str(controller.get_position()))
-	
-	$Sprite3D.translation = controller.get_position() + (controller.get_orientation().get_euler() * 3)
+#	var controller: ARVRPositionalTracker = webxr_interface.get_controller(controller_id)
+#	print ("Orientation: " + str(controller.get_orientation()))
+#	print ("Position: " + str(controller.get_position()))
+
 	pass
 	 
 	
 func _webxr_on_select_start(controller_id: int) -> void:
 	print("Select Start: " + str(controller_id))
- 
+	emit_signal("controller_pressed")
+	pass
+	 
 
 func _webxr_on_select_end(controller_id: int) -> void:
 	print("Select End: " + str(controller_id))
- 
+	emit_signal("controller_released")
+	pass
+	
 
 func _webxr_on_squeeze(controller_id: int) -> void:
 	print("Squeeze: " + str(controller_id))
@@ -149,3 +160,7 @@ func _webxr_on_squeeze_start(controller_id: int) -> void:
 func _webxr_on_squeeze_end(controller_id: int) -> void:
 	print("Squeeze End: " + str(controller_id))
 
+
+func get_controller_orientation():
+	return self.controller_orientation
+	

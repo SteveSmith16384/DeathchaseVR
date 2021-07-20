@@ -1,16 +1,23 @@
 extends Spatial
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+func _on_VRMain_controller_pressed():
+	print("Main: Controller pressed")
+	$Player.accelerate()
+	pass
+
+
+func _on_VRMain_controller_released():
+	print("Main: Controller released")
+	$Player.brake()
+	pass
+
+
+func _on_Player_entity_left_area(body):
+	body.queue_free()
+	pass
