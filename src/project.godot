@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "Globals",
+"language": "GDScript",
+"path": "res://Globals.gd"
+} ]
+_global_script_class_icons={
+"Globals": ""
+}
+
 [application]
 
 config/name="DeathchaseVR"

@@ -179,3 +179,7 @@ func get_controller_orientation() -> Basis:
 #		return self.controller_orientation
 #	return null
 	return $ARVROrigin/RightController/MeshInstance.global_transform.basis
+
+
+func get_head_orientation() -> Basis:
+	return $ARVROrigin/ARVRCamera.global_transform.basis

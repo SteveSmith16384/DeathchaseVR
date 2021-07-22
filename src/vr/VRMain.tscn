@@ -1,13 +1,15 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://vr/VRMain.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/background1.png" type="Texture" id=3]
 
-[sub_resource type="ProceduralSky" id=3]
+[sub_resource type="PanoramaSky" id=5]
+panorama = ExtResource( 3 )
 
 [sub_resource type="Environment" id=4]
 background_mode = 2
-background_sky = SubResource( 3 )
+background_sky = SubResource( 5 )
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 0.1, 0.1, 0.1 )
@@ -32,6 +34,39 @@ __meta__ = {
 
 [node name="ARVRCamera" type="ARVRCamera" parent="ARVROrigin"]
 environment = SubResource( 4 )
+current = true
+far = 40.0
+
+[node name="Sprite3D" type="Sprite3D" parent="ARVROrigin/ARVRCamera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.51885 )
+visible = false
+billboard = 1
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="ARVROrigin/ARVRCamera/Sprite3D"]
+anchor_right = 0.056
+anchor_bottom = 0.063
+margin_left = 345.068
+margin_top = 156.978
+margin_right = 333.724
+margin_bottom = 133.178
+rect_scale = Vector2( 3, 3 )
+text = "HELLO!
+HELLO!
+HELLO!
+HELLO!HELLO!
+HELLO!
+HELLO!
+HELLO!HELLO!
+HELLO!
+HELLO!
+HELLO!HELLO!
+HELLO!
+HELLO!
+HELLO!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="LeftController" type="ARVRController" parent="ARVROrigin"]
 
@@ -45,22 +80,3 @@ controller_id = 2
 [node name="MeshInstance" type="MeshInstance" parent="ARVROrigin/RightController"]
 mesh = SubResource( 2 )
 material/0 = null
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
-billboard = 1
-texture = ExtResource( 2 )
-
-[node name="Label" type="Label" parent="Sprite3D"]
-anchor_right = 0.056
-anchor_bottom = 0.063
-margin_left = 345.068
-margin_top = 156.978
-margin_right = 333.724
-margin_bottom = 133.178
-text = "HELLO!
-HELLO!
-HELLO!
-HELLO!"
-__meta__ = {
-"_edit_use_anchors_": false
-}

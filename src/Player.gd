@@ -4,7 +4,7 @@ signal entity_left_area
 
 var accel = false
 var speed: float = 0
-var dir = Vector3.FORWARD
+var direction = Vector3()
 
 
 func _ready():
@@ -12,6 +12,10 @@ func _ready():
 
 
 func _process(delta):
+#	var direction = Vector3()
+#	var controller_basis : Basis = $Player/VRMain.get_controller_orientation()
+#	direction -= head_basis.z
+
 	if accel:
 		speed += 1
 	else:
@@ -19,7 +23,7 @@ func _process(delta):
 		if speed < 0:
 			speed = 0
 
-	self.move_and_slide(dir * speed, Vector3.UP)
+	self.move_and_slide(direction * speed, Vector3.UP)
 	pass
 
 
