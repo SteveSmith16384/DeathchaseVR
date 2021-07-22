@@ -9,13 +9,13 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
-"class": "Globals",
+"base": "KinematicBody",
+"class": "Player",
 "language": "GDScript",
-"path": "res://Globals.gd"
+"path": "res://Player.gd"
 } ]
 _global_script_class_icons={
-"Globals": ""
+"Player": ""
 }
 
 [application]
@@ -23,6 +23,10 @@ _global_script_class_icons={
 config/name="DeathchaseVR"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Globals="*res://Globals.gd"
 
 [physics]
 

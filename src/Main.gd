@@ -1,11 +1,15 @@
 extends Spatial
 
+var player_start_y : float
 
 func _ready():
+	player_start_y = $Player.translation.y
 	pass
 
 
 func _process(delta):
+	$Player.translation.y = self.player_start_y
+	
 	var controller_basis : Basis = $Player/VRMain.get_controller_orientation()
 	$Player.direction = Vector3()
 	$Player.direction -= controller_basis.z
@@ -43,5 +47,5 @@ func _on_VRMain_controller_released():
 
 
 func _on_Player_entity_left_area(body):
-	#body.queue_free()
+	body.queue_free()
 	pass

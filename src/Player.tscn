@@ -20,4 +20,42 @@ shape = SubResource( 1 )
 [node name="CollisionShape" type="CollisionShape" parent="RemovalArea"]
 shape = SubResource( 2 )
 
+[node name="SpawnPoints" type="Spatial" parent="."]
+
+[node name="Position3D_1" type="Position3D" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5214, 0, 0 )
+
+[node name="Position3D_2" type="Position3D" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.5214, 0, 0 )
+
+[node name="Position3D_3" type="Position3D" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50032, 0, -35.7716 )
+
+[node name="Position3D_9" type="Position3D" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.20088, 0, -35.7716 )
+
+[node name="Position3D_10" type="Position3D" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4642, 0, -35.7716 )
+
+[node name="Position3D_11" type="Position3D" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5151, 0, -29.2233 )
+
+[node name="Position3D_12" type="Position3D" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.866, 0, -29.2233 )
+
+[node name="Position3D_8" type="Position3D" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50032, 0, 35.7135 )
+
+[node name="Position3D_4" type="Position3D" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7674, 0, -22.5136 )
+
+[node name="Position3D_5" type="Position3D" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7674, 0, 22.0133 )
+
+[node name="Position3D_6" type="Position3D" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.7673, 0, 22.0133 )
+
+[node name="Position3D_7" type="Position3D" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.7673, 0, -22.9202 )
+
 [connection signal="body_shape_exited" from="RemovalArea" to="." method="_on_RemovalArea_body_shape_exited"]

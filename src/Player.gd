@@ -1,3 +1,4 @@
+class_name Player
 extends KinematicBody
 
 signal entity_left_area
@@ -12,10 +13,6 @@ func _ready():
 
 
 func _process(delta):
-#	var direction = Vector3()
-#	var controller_basis : Basis = $Player/VRMain.get_controller_orientation()
-#	direction -= head_basis.z
-
 	if accel:
 		speed += 1
 	else:
@@ -23,6 +20,7 @@ func _process(delta):
 		if speed < 0:
 			speed = 0
 
+	speed = 1
 	self.move_and_slide(direction * speed, Vector3.UP)
 	pass
 
@@ -40,3 +38,9 @@ func brake():
 func _on_RemovalArea_body_shape_exited(body_id, body, body_shape, local_shape):
 	emit_signal("entity_left_area", body)
 	pass
+
+
+func get_random_position() -> Vector3:
+	var idx = Globals.rnd.randi_range(1, $SpawnPoints.get_child_count())
+	return $SpawnPoints.get_node("Position3D_" + str(idx)).get_global_transform().origin
+

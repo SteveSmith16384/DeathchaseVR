@@ -1,4 +1,12 @@
-class_name Globals
+#class_name Globals
 extends Node
 
-#const
+
+var rnd : RandomNumberGenerator
+
+func _ready():
+	rnd = RandomNumberGenerator.new()
+	rnd.randomize()
+	pass
+	
+
