@@ -8,6 +8,7 @@ func _ready():
 
 
 func _process(delta):
+	# Position player
 	$Player.translation.y = self.player_start_y
 	
 	var controller_basis : Basis = $Player/VRMain.get_controller_orientation()
@@ -47,5 +48,7 @@ func _on_VRMain_controller_released():
 
 
 func _on_Player_entity_left_area(body):
-	body.queue_free()
+	if "IS_TREE" in body:
+		$Level.place_tree(body)
+#	body.queue_free()
 	pass

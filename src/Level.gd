@@ -16,18 +16,23 @@ func _process(delta):
 
 func _on_Timer_timeout():
 	var num_trees = self.get_child_count()
-	#if num_trees < 10:
-	create_tree()
-	#	pass
+	if num_trees < 20:
+		create_tree()
+		pass
 	pass
 
 
 func create_tree() -> void:
+	var tree = tree_class.instance();
+	self.add_child(tree)
+	place_tree(tree)
+	pass
+	
+	
+func place_tree(tree):
 	var pos : Vector3  = player.get_random_position()
 	
-	var tree = tree_class.instance();
 	tree.translation.x = pos.x
 	tree.translation.z = pos.z
 	
-	self.add_child(tree)
 	pass

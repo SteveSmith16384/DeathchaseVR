@@ -25,7 +25,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.14194, 0, -0.260492 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94371, 0, -5.5961 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.1
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

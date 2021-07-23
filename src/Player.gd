@@ -20,7 +20,10 @@ func _process(delta):
 		if speed < 0:
 			speed = 0
 
-	speed = 1
+	if Globals.AUTO_TURN:
+		speed = 3
+		self.rotate_y(0.1 * delta)
+		
 	self.move_and_slide(direction * speed, Vector3.UP)
 	pass
 
