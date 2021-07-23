@@ -11,9 +11,12 @@ func _process(delta):
 	# Position player
 	$Player.translation.y = self.player_start_y
 	
+	#$Player.direction = Vector3()
 	var controller_basis : Basis = $Player/VRMain.get_controller_orientation()
-	$Player.direction = Vector3()
-	$Player.direction -= controller_basis.z
+	var new_dir = controller_basis.z * -1
+	new_dir = $Player.direction.normalized().slerp(new_dir, 0.1)
+	$Player.direction = new_dir
+	$Player.direction.y = 0
 	
 	var global_pos = $Player.global_transform.origin
 	var pos = global_pos + ($Player.direction * 10)

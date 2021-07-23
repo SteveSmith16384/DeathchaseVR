@@ -5,7 +5,7 @@ signal entity_left_area
 
 var accel = false
 var speed: float = 0
-var direction = Vector3()
+var direction : Vector3 = Vector3(0, 0, 1)
 
 
 func _ready():

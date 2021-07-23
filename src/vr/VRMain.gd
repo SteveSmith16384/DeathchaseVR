@@ -131,14 +131,6 @@ func _process(delta: float) -> void:
 	pass
  
 
-func position_label(label:Label, point3D:Vector3):
-	var camera = $ARVROrigin/ARVRCamera
-	var cam_pos = camera.translation
-	var offset = Vector2(label.get_size().x/2, 0)
-	label.rect_position = camera.unproject_position(point3D) - offset
-	pass
-
-	
 func _webxr_on_select(controller_id: int) -> void:
 	print("Select: " + str(controller_id))
  
