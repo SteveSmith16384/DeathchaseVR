@@ -15,6 +15,11 @@ func _process(delta):
 	$Player.direction = Vector3()
 	$Player.direction -= controller_basis.z
 	
+	var global_pos = $Player.global_transform.origin
+	var pos = global_pos + ($Player.direction * 10)
+	pos.y = $Player.translation.y
+	$Player.look_at(pos, Vector3.UP)
+	
 	return
 	
 	var controller_rot : Quat = controller_basis.get_rotation_quat().normalized()
