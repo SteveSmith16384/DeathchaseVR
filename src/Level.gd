@@ -16,7 +16,7 @@ func _process(delta):
 
 func _on_Timer_timeout():
 	var num_trees = self.get_child_count()
-	if num_trees < 20:
+	if num_trees < 30:
 		create_tree()
 		pass
 	pass
