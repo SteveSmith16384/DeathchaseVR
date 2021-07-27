@@ -7,17 +7,23 @@ onready var rocket_class = preload("res://Rocket.tscn")
 
 signal entity_left_area
 
+var player_start_y : float
+
 var accel = false
 var shooting = false
 var speed: float = 0
-var direction : Vector3 = Vector3(0, 0, 1)
+var move_dir : Vector3 = Vector3(0, 0, 1)
 
 
 func _ready():
+	player_start_y = translation.y
 	pass
 
 
 func _process(delta):
+	# Position player
+	translation.y = self.player_start_y
+	
 	if accel:
 		shooting = true
 		speed += 1
@@ -65,7 +71,7 @@ func get_random_position() -> Vector3:
 func _on_ShootTimer_timeout():
 	if shooting || Globals.AUTO_SHOOT:
 		var rocket = rocket_class.instance();
-		rocket.direction = direction
+		rocket.move_dir = move_dir
 		rocket.translation = $Muzzle.translation
 		self.add_child(rocket)
 		pass

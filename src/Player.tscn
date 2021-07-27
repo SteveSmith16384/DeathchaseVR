@@ -85,7 +85,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8732, 0, -26.0775 )
 autostart = true
 
 [node name="Muzzle" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.114037, -1.50968 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.114037, -0.759497 )
 
 [connection signal="body_shape_exited" from="RemovalArea" to="." method="_on_RemovalArea_body_shape_exited"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
