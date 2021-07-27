@@ -1,10 +1,28 @@
-extends KinematicBody
+extends Spatial
 
+var angle_to_player : float
+var dist : float = 3
+var player : Player
+var dir = 1
 
 func _ready():
-	pass # Replace with function body.
+	var main = get_tree().get_root().get_node("Main")
+	player = main.get_node("Player")
+	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if Globals.rnd.randi_range(0, 10) == 0:
+		dir = dir * -1
+		
+	angle_to_player += delta * dir * 0.1
+	
+	var x : float = sin(angle_to_player) * -dist
+	var z : float = cos(angle_to_player) * -dist
+	
+	var offset = player.translation
+	offset.x += x
+	offset.z += z
+	
+	self.translation = offset
+	pass
