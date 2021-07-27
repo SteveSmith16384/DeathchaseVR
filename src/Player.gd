@@ -67,7 +67,6 @@ func get_random_global_spawn_position() -> Vector3:
 	return $SpawnPoints.get_node("Position3D_" + str(idx)).get_global_transform().origin
 
 
-
 func _on_ShootTimer_timeout():
 	if shooting || Globals.AUTO_SHOOT:
 		var rocket = rocket_class.instance();
