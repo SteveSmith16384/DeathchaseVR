@@ -23,4 +23,9 @@ autostart = true
 [node name="CollisionShape" type="CollisionShape" parent="CollisionArea"]
 shape = SubResource( 1 )
 
+[node name="JetTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="JetTimer" to="." method="_on_JetTimer_timeout"]

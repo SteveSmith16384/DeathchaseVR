@@ -1,18 +1,20 @@
 extends Spatial
 
-const SPEED = 16#160
+const SPEED = 13
 
-var move_dir# = Vector3(0, 0, -1)
+onready var jet_class = preload("res://RocketJet.tscn")
+
+var main
+var move_dir
 
 func _ready():
-	pass # Replace with function body.
-
-
+	main = get_tree().get_root().get_node("Main")
+	pass
+	
+	
 func _process(delta):
 	var new_pos = self.translation + (move_dir * SPEED * delta)
 	self.translation = new_pos
-	
-	#self.move_and_slide(move_dir * SPEED, Vector3.UP)
 	pass
 
 
@@ -22,4 +24,12 @@ func _on_Timer_timeout():
 	
 
 func hit_tree():
+	# todo
+	pass
+
+
+func _on_JetTimer_timeout():
+	var jet = jet_class.instance();
+	jet.translation = self.global_transform.origin
+	main.add_child(jet)
 	pass
