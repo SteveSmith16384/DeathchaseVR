@@ -62,7 +62,7 @@ func _on_RemovalArea_body_shape_exited(body_id, body, body_shape, local_shape):
 	pass
 
 
-func get_random_position() -> Vector3:
+func get_random_global_spawn_position() -> Vector3:
 	var idx = Globals.rnd.randi_range(1, $SpawnPoints.get_child_count())
 	return $SpawnPoints.get_node("Position3D_" + str(idx)).get_global_transform().origin
 

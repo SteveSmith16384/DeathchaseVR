@@ -5,6 +5,32 @@ func _ready():
 
 
 func _process(delta):
+	#move_player(delta)
+	move_level(delta)
+	pass
+	
+	
+func move_level(delta):
+	if $Player.speed > 0:
+		var controller_basis : Basis = $Player/VRMain.get_controller_orientation()
+		var new_dir = controller_basis.z * -1 # scs new -1
+		new_dir = $Player.move_dir.normalized().slerp(new_dir, 0.1)
+		$Player.move_dir = new_dir
+		$Player.move_dir.y = 0
+		
+		# Rotate the player, otherwise we're rotating the level in the diatance
+		var global_pos = $Player.global_transform.origin
+		var pos = global_pos + ($Player.move_dir * 10)
+		pos.y = $Player.translation.y
+		$Player.look_at(pos, Vector3.UP)
+
+		# Move the level
+		#$Level.move_and_slide($Player.direction * -$Player.speed, Vector3.UP)
+		$Level.translation += $Player.move_dir * ($Player.speed * delta * -1)
+	pass
+	
+
+func move_player(delta):
 	if $Player.speed > 0:
 		var controller_basis : Basis = $Player/VRMain.get_controller_orientation()
 		var new_dir = controller_basis.z * -1
@@ -21,24 +47,6 @@ func _process(delta):
 		#$Level.move_and_slide($Player.direction * -$Player.speed, Vector3.UP)
 		$Level.translation += $Player.move_dir * (-$Player.speed * delta)
 		pass
-		
-#	return
-#	
-#	var controller_rot : Quat = controller_basis.get_rotation_quat().normalized()
-#
-#	var head_basis : Basis = $Player/VRMain.get_head_orientation()
-#	var head_rot : Quat = head_basis.get_rotation_quat().normalized()
-#
-#	var overall_rot = controller_rot.y - head_rot.y
-#	print("Controller Rot.y=" + str(controller_rot.y))
-#	print("Head Rot.y=" + str(head_rot.y))
-#	print("Total Rot.y=" + str(overall_rot))
-#	if abs(overall_rot) > 0.2:
-#		if overall_rot > 0:
-#			$Player.rotate_y(0.1)
-#		else:
-#			$Player.rotate_y(-0.1)
-#		pass
 	pass
 	
 

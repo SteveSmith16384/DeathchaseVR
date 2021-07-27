@@ -30,9 +30,9 @@ func create_tree() -> void:
 	
 	
 func place_tree(tree):
-	var pos : Vector3  = player.get_random_position()
+	var pos : Vector3  = player.get_random_global_spawn_position()
 	
-	tree.translation.x = pos.x
-	tree.translation.z = pos.z
-	
+	var level_global : Vector3 = self.global_transform.origin
+	tree.translation.x = pos.x - level_global.x
+	tree.translation.z = pos.z - level_global.z
 	pass
