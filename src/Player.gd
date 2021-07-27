@@ -39,12 +39,6 @@ func _process(delta):
 		speed = 3
 		#self.rotate_y(0.1 * delta)
 		
-#	self.move_and_slide(direction * speed, Vector3.UP)
-#	var slide_count = get_slide_count()
-#	if slide_count > 0:
-		# Crash!
-#		speed = 0
-
 	pass
 
 
@@ -79,7 +73,6 @@ func _on_ShootTimer_timeout():
 		rocket.move_dir = move_dir * -1
 		rocket.translation = $Muzzle.translation
 		self.add_child(rocket)
-		pass
 	pass
 
 

@@ -10,6 +10,9 @@ var controller_orientation : Basis
 var controller: ARVRPositionalTracker
  
 func _ready() -> void:
+#	var env = $ARVROrigin/ARVRCamera.environment
+#	env.background_sky.sky_top_color = Color(0, 0, 0)
+	
 	$Button.connect("pressed", self, "_on_Button_pressed")
  
 	webxr_interface = ARVRServer.find_interface("WebXR")

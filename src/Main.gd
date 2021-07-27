@@ -65,5 +65,4 @@ func _on_VRMain_controller_released():
 func _on_Player_entity_left_area(body):
 	if "IS_TREE" in body:
 		$Level.place_tree(body)
-#	body.queue_free()
 	pass
