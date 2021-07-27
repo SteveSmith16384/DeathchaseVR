@@ -1,5 +1,5 @@
 class_name Player
-extends KinematicBody
+extends Spatial
 
 const MAX_SPEED = 15
 
@@ -44,6 +44,7 @@ func _process(delta):
 #	if slide_count > 0:
 		# Crash!
 #		speed = 0
+
 	pass
 
 
@@ -58,7 +59,12 @@ func brake():
 
 
 func _on_RemovalArea_body_shape_exited(body_id, body, body_shape, local_shape):
-	emit_signal("entity_left_area", body)
+	pass
+
+
+func _on_RemovalArea_area_exited(area : Area):
+	var owner = area.get_parent_spatial()
+	emit_signal("entity_left_area", owner)
 	pass
 
 
@@ -70,8 +76,17 @@ func get_random_global_spawn_position() -> Vector3:
 func _on_ShootTimer_timeout():
 	if shooting || Globals.AUTO_SHOOT:
 		var rocket = rocket_class.instance();
-		rocket.move_dir = move_dir
+		rocket.move_dir = move_dir * -1
 		rocket.translation = $Muzzle.translation
 		self.add_child(rocket)
 		pass
 	pass
+
+
+func hit_tree():
+	$Audio_Crash.play()
+	speed = 0
+	pass
+
+
+

@@ -1,6 +1,6 @@
-extends KinematicBody
+extends Spatial
 
-const SPEED = 16
+const SPEED = 16#160
 
 var move_dir# = Vector3(0, 0, -1)
 
@@ -9,7 +9,10 @@ func _ready():
 
 
 func _process(delta):
-	self.move_and_slide(move_dir * SPEED, Vector3.UP)
+	var new_pos = self.translation + (move_dir * SPEED * delta)
+	self.translation = new_pos
+	
+	#self.move_and_slide(move_dir * SPEED, Vector3.UP)
 	pass
 
 
@@ -17,3 +20,6 @@ func _on_Timer_timeout():
 	self.queue_free()
 	pass
 	
+
+func hit_tree():
+	pass
