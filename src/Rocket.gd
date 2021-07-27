@@ -1,5 +1,7 @@
 extends KinematicBody
 
+const SPEED = 16
+
 var direction# = Vector3(0, 0, -1)
 
 func _ready():
@@ -7,7 +9,7 @@ func _ready():
 
 
 func _process(delta):
-	self.move_and_slide(direction * 8, Vector3.UP)
+	self.move_and_slide(direction * SPEED, Vector3.UP)
 	pass
 
 

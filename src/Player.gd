@@ -31,13 +31,13 @@ func _process(delta):
 
 	if Globals.AUTO_TURN:
 		speed = 3
-		self.rotate_y(0.1 * delta)
+		#self.rotate_y(0.1 * delta)
 		
-	self.move_and_slide(direction * speed, Vector3.UP)
-	var slide_count = get_slide_count()
-	if slide_count > 0:
+#	self.move_and_slide(direction * speed, Vector3.UP)
+#	var slide_count = get_slide_count()
+#	if slide_count > 0:
 		# Crash!
-		speed = 0
+#		speed = 0
 	pass
 
 

@@ -22,6 +22,10 @@ func _process(delta):
 		var pos = global_pos + ($Player.direction * 10)
 		pos.y = $Player.translation.y
 		$Player.look_at(pos, Vector3.UP)
+
+		# Move the level
+		#$Level.move_and_slide($Player.direction * -$Player.speed, Vector3.UP)
+		$Level.translation += $Player.direction * (-$Player.speed * delta)
 		pass
 		
 #	return
