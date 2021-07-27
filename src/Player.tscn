@@ -15,7 +15,7 @@ extents = Vector3( 0.312512, 1, 0.576822 )
 script = ExtResource( 1 )
 
 [node name="DebuggingSphere" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -32.8836 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.9213 )
 visible = false
 
 [node name="Motorbike" type="Sprite3D" parent="."]

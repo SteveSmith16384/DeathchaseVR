@@ -12,10 +12,13 @@ func _ready():
 
 
 func _process(delta):
-	if Globals.rnd.randi_range(0, 10) == 0:
-		dir = dir * -1
+	if Globals.rnd.randi_range(0, 20) == 0:
+		dir = Globals.rnd.randi_range(-1, 1)
+		$Sprite3D_Left.visible = dir == 1
+		$Sprite3D_Right.visible = dir == -1
+		$Sprite3D_Forward.visible = dir == 0
 		
-	angle_to_player += delta * dir * 0.1
+	angle_to_player += delta * dir * 0.8
 	
 	var x : float = sin(angle_to_player) * -dist
 	var z : float = cos(angle_to_player) * -dist

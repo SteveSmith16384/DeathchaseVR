@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/biker_right.png-14c145847b6beaab385c022b5f9cf826.s3tc.stex"
-path.etc2="res://.import/biker_right.png-14c145847b6beaab385c022b5f9cf826.etc2.stex"
+path.s3tc="res://.import/biker_blue_straight.png-20f41d01cd95ad930b5919e0cf1ca5e5.s3tc.stex"
+path.etc2="res://.import/biker_blue_straight.png-20f41d01cd95ad930b5919e0cf1ca5e5.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/biker_right.png"
-dest_files=[ "res://.import/biker_right.png-14c145847b6beaab385c022b5f9cf826.s3tc.stex", "res://.import/biker_right.png-14c145847b6beaab385c022b5f9cf826.etc2.stex" ]
+source_file="res://assets/biker_blue_straight.png"
+dest_files=[ "res://.import/biker_blue_straight.png-20f41d01cd95ad930b5919e0cf1ca5e5.s3tc.stex", "res://.import/biker_blue_straight.png-20f41d01cd95ad930b5919e0cf1ca5e5.etc2.stex" ]
 
 [params]
 
