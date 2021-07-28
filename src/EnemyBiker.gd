@@ -1,9 +1,13 @@
 extends Spatial
 
-var angle_to_player : float
-var dist : float = 3
+const MIN_DIST = 10
+const MAX_DIST = 20
+
+var angle_to_player : float = PI
+var dist : float = 30
 var player : Player
-var dir = 1
+var rotation_dir = 1
+var fwd_back_dir = -1
 
 func _ready():
 	var main = get_tree().get_root().get_node("Main")
@@ -12,13 +16,19 @@ func _ready():
 
 
 func _process(delta):
-	if Globals.rnd.randi_range(0, 20) == 0:
-		dir = Globals.rnd.randi_range(-1, 1)
-		$Sprite3D_Left.visible = dir == 1
-		$Sprite3D_Right.visible = dir == -1
-		$Sprite3D_Forward.visible = dir == 0
+	dist += delta * fwd_back_dir * 2
+	if fwd_back_dir < 0 and dist < MIN_DIST:
+		fwd_back_dir = 1
+	elif fwd_back_dir > 0 and dist > MAX_DIST:
+		fwd_back_dir = -1
+	
+	if Globals.rnd.randi_range(0, 30) == 0:
+		rotation_dir = Globals.rnd.randi_range(-1, 1)
+		$Sprite3D_Left.visible = rotation_dir == 1
+		$Sprite3D_Right.visible = rotation_dir == -1
+		$Sprite3D_Forward.visible = rotation_dir == 0
 		
-	angle_to_player += delta * dir * 0.8
+	angle_to_player += delta * rotation_dir / dist
 	
 	var x : float = sin(angle_to_player) * -dist
 	var z : float = cos(angle_to_player) * -dist

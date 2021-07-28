@@ -6,23 +6,23 @@
 [ext_resource path="res://assets/biker_blue_left.png" type="Texture" id=4]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 0.177066, 0.277936, 0.207628 )
+extents = Vector3( 0.177, 0.5, 0.208 )
 
 [node name="EnemyBiker" type="Spatial"]
 script = ExtResource( 3 )
 
 [node name="Sprite3D_Left" type="Sprite3D" parent="."]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0 )
 billboard = 2
 texture = ExtResource( 4 )
 
 [node name="Sprite3D_Right" type="Sprite3D" parent="."]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0 )
 billboard = 2
 texture = ExtResource( 1 )
 
 [node name="Sprite3D_Forward" type="Sprite3D" parent="."]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0 )
 billboard = 2
 texture = ExtResource( 2 )
 

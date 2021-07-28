@@ -8,6 +8,8 @@ var vr_supported = false
 
 var controller_orientation : Basis
 var controller: ARVRPositionalTracker
+
+signal vr_entered
  
 func _ready() -> void:
 #	var env = $ARVROrigin/ARVRCamera.environment
@@ -76,7 +78,10 @@ func _on_Button_pressed() -> void:
 	if not webxr_interface.initialize():
 		OS.alert("Failed to initialize")
 		return
- 
+		
+	emit_signal("vr_entered")
+	pass
+
 
 func _webxr_session_started() -> void:
 	$Button.visible = false
