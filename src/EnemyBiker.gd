@@ -2,6 +2,7 @@ extends Spatial
 
 export var blue : bool = true
 
+const TURN_SPEED = 2
 const MIN_DIST = 20
 const MAX_DIST = 40
 
@@ -38,7 +39,7 @@ func _process(delta):
 		$BlueSprites/Sprite3D_Blue_Right.visible = rotation_dir == -1
 		$BlueSprites/Sprite3D_Blue_Forward.visible = rotation_dir == 0
 		
-	angle_to_player += delta * rotation_dir / dist
+	angle_to_player += delta * TURN_SPEED * rotation_dir / dist
 	
 	var x : float = sin(angle_to_player) * -dist
 	var z : float = cos(angle_to_player) * -dist

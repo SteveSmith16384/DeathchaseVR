@@ -22,7 +22,7 @@ func _process(delta):
 		up_down_dir = 1
 	elif up_down_dir > 0 and height > MAX_HEIGHT:
 		up_down_dir = -1
-	height += up_down_dir * delta * 10
+	height += up_down_dir * delta * 1
 
 	angle_to_player += delta * -.3
 	

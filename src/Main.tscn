@@ -17,6 +17,7 @@ script = ExtResource( 3 )
 blue = false
 
 [node name="Tank" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30 )
 
 [node name="Heli" parent="." instance=ExtResource( 7 )]
 
@@ -26,6 +27,7 @@ blue = false
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.10544, 0 )
 
 [node name="VRMain" parent="Player" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.391219, 0 )
 
 [connection signal="entity_left_area" from="Player" to="." method="_on_Player_entity_left_area"]
 [connection signal="controller_pressed" from="Player/VRMain" to="." method="_on_VRMain_controller_pressed"]

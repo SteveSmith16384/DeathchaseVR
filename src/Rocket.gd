@@ -4,8 +4,8 @@ const SPEED = 13
 
 onready var jet_class = preload("res://RocketJet.tscn")
 
-var main
-var move_dir
+var main : Main
+var move_dir = Vector3(0, 0, -1)
 
 func _ready():
 	main = get_tree().get_root().get_node("Main")
@@ -13,7 +13,8 @@ func _ready():
 	
 	
 func _process(delta):
-	var new_pos = self.translation + (move_dir * SPEED * delta)
+	var offset = move_dir * (SPEED * delta)
+	var new_pos = self.translation + offset
 	self.translation = new_pos
 	pass
 

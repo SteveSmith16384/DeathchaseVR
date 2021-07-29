@@ -14,7 +14,7 @@ func _ready():
 
 
 func _process(delta):
-	angle_to_player += delta * -.3
+	angle_to_player += delta * -0.1
 	
 	var x : float = sin(angle_to_player) * -DIST
 	var z : float = cos(angle_to_player) * -DIST

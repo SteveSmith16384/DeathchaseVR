@@ -1,7 +1,7 @@
 class_name Player
 extends Spatial
 
-const MAX_SPEED = 15
+const MAX_SPEED = 20
 
 onready var rocket_class = preload("res://Rocket.tscn")
 
@@ -70,7 +70,7 @@ func get_random_global_spawn_position() -> Vector3:
 func _on_ShootTimer_timeout():
 	if shooting || Globals.AUTO_SHOOT:
 		var rocket = rocket_class.instance();
-		rocket.move_dir = move_dir * -1
+		#rocket.move_dir = move_dir.normalized() * -1
 		rocket.translation = $Muzzle.translation
 		self.add_child(rocket)
 	pass
