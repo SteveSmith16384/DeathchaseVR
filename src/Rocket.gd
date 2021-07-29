@@ -33,3 +33,10 @@ func _on_JetTimer_timeout():
 	jet.translation = self.global_transform.origin
 	main.add_child(jet)
 	pass
+
+
+func _on_CollisionArea_area_entered(area):
+	var owner : Spatial = area.get_parent_spatial()
+	if owner.has_method("hit_by_rocket"):
+		owner.hit_by_rocket()
+	pass

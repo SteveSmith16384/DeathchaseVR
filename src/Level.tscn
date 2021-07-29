@@ -12,6 +12,18 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
 [node name="Tree5" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.87816, 0, -16.9186 )
 
+[node name="Tree7" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1998, 0, -21.9166 )
+
+[node name="Tree8" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.213, 0, -21.9166 )
+
+[node name="Tree9" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9761, 0, -11.8971 )
+
+[node name="Tree10" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.62264, 0, -33.2519 )
+
 [node name="Tree6" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.41938, 0, -16.9186 )
 
@@ -25,7 +37,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.14194, 0, -0.260492 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94371, 0, -5.5961 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 2.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

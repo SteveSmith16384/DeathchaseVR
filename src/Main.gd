@@ -1,4 +1,7 @@
+class_name Main
 extends Spatial
+
+var small_expl = preload("res://SmallExplosion.tscn")	
 
 func _ready():
 	pass
@@ -50,6 +53,13 @@ func move_player(delta):
 	pass
 	
 
+func small_explosion(spatial):
+	var i = small_expl.instance()
+	add_child(i)
+	i.translation = spatial.global_transform.origin
+	pass
+	
+	
 func _on_VRMain_controller_pressed():
 	#print("Main: Controller pressed")
 	$Player.accelerate()

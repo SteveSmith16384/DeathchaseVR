@@ -10,11 +10,17 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Spatial",
+"class": "Main",
+"language": "GDScript",
+"path": "res://Main.gd"
+}, {
+"base": "Spatial",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player.gd"
 } ]
 _global_script_class_icons={
+"Main": "",
 "Player": ""
 }
 

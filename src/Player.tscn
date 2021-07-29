@@ -31,49 +31,43 @@ shape = SubResource( 2 )
 [node name="SpawnPoints" type="Spatial" parent="."]
 
 [node name="Position3D_1" type="Position3D" parent="SpawnPoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5214, 0, -12.0072 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.05449, 0, -44.4891 )
 
 [node name="Position3D_2" type="Position3D" parent="SpawnPoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.5214, 0, -10.2562 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19853, 0, -44.4596 )
 
 [node name="Position3D_3" type="Position3D" parent="SpawnPoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50032, 0, -35.7716 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84087, 0, -45.6429 )
 
 [node name="Position3D_9" type="Position3D" parent="SpawnPoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.20088, 0, -35.7716 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.20088, 0, -44.3023 )
 
 [node name="Position3D_13" type="Position3D" parent="SpawnPoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0572, 0, -34.8521 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0572, 0, -40.7017 )
 
 [node name="Position3D_10" type="Position3D" parent="SpawnPoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4642, 0, -35.7716 )
-
-[node name="Position3D_14" type="Position3D" parent="SpawnPoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8361, 0, -33.0129 )
-
-[node name="Position3D_15" type="Position3D" parent="SpawnPoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.07609, 0, -38.046 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.10202, 0, -44.6679 )
 
 [node name="Position3D_11" type="Position3D" parent="SpawnPoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5151, 0, -29.2233 )
-
-[node name="Position3D_12" type="Position3D" parent="SpawnPoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.866, 0, -29.2233 )
-
-[node name="Position3D_8" type="Position3D" parent="SpawnPoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1876, 0, -36.4668 )
-
-[node name="Position3D_4" type="Position3D" parent="SpawnPoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7674, 0, -22.5136 )
-
-[node name="Position3D_5" type="Position3D" parent="SpawnPoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7674, 0, -23.2404 )
-
-[node name="Position3D_6" type="Position3D" parent="SpawnPoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.7673, 0, -23.2404 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8361, 0, -40.6906 )
 
 [node name="Position3D_7" type="Position3D" parent="SpawnPoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8732, 0, -26.0775 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.10115, 0, -45.3581 )
+
+[node name="Position3D_12" type="Position3D" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.28502, 0, -44.4833 )
+
+[node name="Position3D_8" type="Position3D" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.55321, 0, -45.1194 )
+
+[node name="Position3D_4" type="Position3D" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8764, 0, -43.2988 )
+
+[node name="Position3D_5" type="Position3D" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22637, 0, -45.078 )
+
+[node name="Position3D_6" type="Position3D" parent="SpawnPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4549, 0, -42.4469 )
 
 [node name="ShootTimer" type="Timer" parent="."]
 autostart = true

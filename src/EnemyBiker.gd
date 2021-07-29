@@ -1,16 +1,18 @@
 extends Spatial
 
-const MIN_DIST = 10
-const MAX_DIST = 20
+const MIN_DIST = 20
+const MAX_DIST = 40
+
+var player : Player
+var main : Main
 
 var angle_to_player : float = PI
-var dist : float = 30
-var player : Player
+var dist : float = 20
 var rotation_dir = 1
 var fwd_back_dir = -1
 
 func _ready():
-	var main = get_tree().get_root().get_node("Main")
+	main = get_tree().get_root().get_node("Main")
 	player = main.get_node("Player")
 	pass
 
@@ -39,3 +41,10 @@ func _process(delta):
 	
 	self.translation = offset
 	pass
+
+
+func hit_by_rocket():
+	main.small_explosion(self)
+	self.queue_free()
+	pass
+	
