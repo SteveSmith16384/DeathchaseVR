@@ -14,6 +14,7 @@ script = ExtResource( 3 )
 [node name="EnemyBiker" parent="." instance=ExtResource( 5 )]
 
 [node name="EnemyBiker2" parent="." instance=ExtResource( 5 )]
+blue = false
 
 [node name="Tank" parent="." instance=ExtResource( 6 )]
 

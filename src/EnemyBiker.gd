@@ -1,5 +1,7 @@
 extends Spatial
 
+export var blue : bool = true
+
 const MIN_DIST = 20
 const MAX_DIST = 40
 
@@ -14,6 +16,9 @@ var fwd_back_dir = -1
 func _ready():
 	main = get_tree().get_root().get_node("Main")
 	player = main.get_node("Player")
+	
+	$YellowSprites.visible = not blue
+	$BlueSprites.visible = blue
 	pass
 
 
@@ -26,9 +31,12 @@ func _process(delta):
 	
 	if Globals.rnd.randi_range(0, 30) == 0:
 		rotation_dir = Globals.rnd.randi_range(-1, 1)
-		$Sprite3D_Left.visible = rotation_dir == 1
-		$Sprite3D_Right.visible = rotation_dir == -1
-		$Sprite3D_Forward.visible = rotation_dir == 0
+		$YellowSprites/Sprite3D_Yellow_Left.visible = rotation_dir == 1
+		$YellowSprites/Sprite3D_Yellow_Right.visible = rotation_dir == -1
+		$YellowSprites/Sprite3D_Yellow_Forward.visible = rotation_dir == 0
+		$BlueSprites/Sprite3D_Blue_Left.visible = rotation_dir == 1
+		$BlueSprites/Sprite3D_Blue_Right.visible = rotation_dir == -1
+		$BlueSprites/Sprite3D_Blue_Forward.visible = rotation_dir == 0
 		
 	angle_to_player += delta * rotation_dir / dist
 	
