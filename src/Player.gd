@@ -16,7 +16,7 @@ var move_dir : Vector3 = Vector3(0, 0, 1)
 
 
 func _ready():
-	player_start_y = translation.y
+	player_start_y = 0#translation.y
 	pass
 
 

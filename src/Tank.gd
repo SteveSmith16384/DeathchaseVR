@@ -1,6 +1,6 @@
 extends Spatial
 
-const DIST : float = 30.0
+const DIST : float = 60.0
 
 var player : Player
 var main : Main

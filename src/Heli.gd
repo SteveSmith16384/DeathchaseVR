@@ -2,14 +2,14 @@ extends Spatial
 
 const MAX_HEIGHT = 5
 
-const DIST : float = 30.0
+const DIST : float = 60.0
 
 var player : Player
 var main : Main
 var height : float = 0
 var up_down_dir = 1
 
-var angle_to_player : float = PI#*2
+var angle_to_player : float = PI*2
 
 func _ready():
 	main = get_tree().get_root().get_node("Main")

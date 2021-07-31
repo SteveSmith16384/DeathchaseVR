@@ -34,5 +34,6 @@ func place_tree(tree):
 	
 	var level_global : Vector3 = self.global_transform.origin
 	tree.translation.x = pos.x - level_global.x
+	tree.translation.y = 0
 	tree.translation.z = pos.z - level_global.z
 	pass

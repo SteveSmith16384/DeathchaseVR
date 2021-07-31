@@ -3,8 +3,8 @@ extends Spatial
 export var blue : bool = true
 
 const TURN_SPEED = 2
-const MIN_DIST = 20
-const MAX_DIST = 40
+const MIN_DIST = 30
+const MAX_DIST = 50
 
 var player : Player
 var main : Main
