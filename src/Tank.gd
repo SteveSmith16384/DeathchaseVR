@@ -3,7 +3,7 @@ extends Spatial
 const DIST : float = 60.0
 
 var player : Player
-var main : Main
+var main #: Main
 
 var angle_to_player : float = PI*2
 
@@ -14,7 +14,7 @@ func _ready():
 
 
 func _process(delta):
-	angle_to_player += delta * -0.1
+	angle_to_player += delta * -0.08
 	
 	var x : float = sin(angle_to_player) * -DIST
 	var z : float = cos(angle_to_player) * -DIST
@@ -24,6 +24,7 @@ func _process(delta):
 	offset.z += z
 	
 	self.translation = offset
+	self.translation.y = 0
 	pass
 
 

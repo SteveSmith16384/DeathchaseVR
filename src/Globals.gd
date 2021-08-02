@@ -7,6 +7,8 @@ const RELEASE_MODE = false
 const AUTO_TURN = false and !RELEASE_MODE
 const AUTO_SHOOT = false and !RELEASE_MODE
 
+var NUM_TREES = 20
+var num_bikers = 0
 
 var rnd : RandomNumberGenerator
 

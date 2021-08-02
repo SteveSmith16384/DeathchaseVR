@@ -2,6 +2,7 @@ class_name Main
 extends Spatial
 
 var small_expl = preload("res://SmallExplosion.tscn")	
+var daytime = true
 
 func _ready():
 	pass
@@ -48,3 +49,18 @@ func _on_Player_entity_left_area(body):
 	if "IS_TREE" in body:
 		$Level.place_tree(body)
 	pass
+
+
+func biker_killed():
+	Globals.num_bikers -= 1
+	if Globals.num_bikers <= 0:
+		Globals.NUM_TREES += 4
+		daytime = not daytime
+		var env = $Player/VRMain/ARVROrigin/ARVRCamera.environment
+		if daytime:
+			env.background_sky.sky_top_color = Color(0, 1, 1)
+		else:
+			env.background_sky.sky_top_color = Color(0, 0, 0)
+
+	pass
+	

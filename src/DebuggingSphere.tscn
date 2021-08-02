@@ -6,6 +6,7 @@
 albedo_color = Color( 1, 0, 0, 1 )
 
 [node name="DebuggingSphere" type="CSGSphere"]
+visible = false
 radius = 0.3
 material = SubResource( 1 )
 script = ExtResource( 1 )

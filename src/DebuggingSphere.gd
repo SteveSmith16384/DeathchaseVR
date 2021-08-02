@@ -2,10 +2,13 @@ extends CSGSphere
 
 
 func _ready():
-	self.visible = not Globals.RELEASE_MODE
-	pass # Replace with function body.
+	self.visible = self.visible and not Globals.RELEASE_MODE
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+#	if self.global_transform.origin.y != 0:
+#		var owner = self.owner
+#		if owner.name != "Heli":
+#			print("Here! " + owner.name)
+		
+	pass

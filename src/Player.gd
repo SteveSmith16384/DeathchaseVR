@@ -1,7 +1,7 @@
 class_name Player
 extends Spatial
 
-const MAX_SPEED = 20
+const MAX_SPEED = 30
 
 onready var rocket_class = preload("res://Rocket.tscn")
 
@@ -72,6 +72,7 @@ func _on_ShootTimer_timeout():
 		var rocket = rocket_class.instance();
 		#rocket.move_dir = move_dir.normalized() * -1
 		rocket.translation = $Muzzle.translation
+		rocket.translation.y = 0
 		self.add_child(rocket)
 	pass
 
