@@ -4,8 +4,8 @@ const MAX_HEIGHT = 5
 
 const DIST : float = 60.0
 
-var player : Player
-var main : Main
+var player #: Player
+var main #: Main
 var height : float = 0
 var up_down_dir = 1
 

@@ -2,7 +2,7 @@ extends Spatial
 
 const DIST : float = 60.0
 
-var player : Player
+var player #: Player
 var main #: Main
 
 var angle_to_player : float = PI*2

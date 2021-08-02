@@ -1,7 +1,9 @@
 class_name Main
 extends Spatial
 
-var small_expl = preload("res://SmallExplosion.tscn")	
+var tank_class = preload("res://Tank.tscn")	
+var heli_class = preload("res://Heli.tscn")	
+var small_expl_class = preload("res://SmallExplosion.tscn")	
 var daytime = true
 
 func _ready():
@@ -27,7 +29,7 @@ func _process(delta):
 	
 
 func small_explosion(spatial):
-	var i = small_expl.instance()
+	var i = small_expl_class.instance()
 	add_child(i)
 	i.translation = spatial.global_transform.origin
 	pass
@@ -64,3 +66,15 @@ func biker_killed():
 
 	pass
 	
+
+
+func _on_TankHeliTimer_timeout():
+	if Globals.rnd.randf_range(1, 2) == 1:
+		if self.has_node("Tank") == false:
+			var i = tank_class.instance()
+			add_child(i)
+	else:
+		if self.has_node("Heli") == false:
+			var i = heli_class.instance()
+			add_child(i)
+	pass

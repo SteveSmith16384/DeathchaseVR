@@ -82,5 +82,3 @@ func hit_tree():
 	speed = 0
 	pass
 
-
-
