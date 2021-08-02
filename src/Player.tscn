@@ -65,6 +65,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22637, 0, -45.078 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4549, 0, -42.4469 )
 
 [node name="ShootTimer" type="Timer" parent="."]
+wait_time = 2.0
 autostart = true
 
 [node name="Muzzle" type="Position3D" parent="."]

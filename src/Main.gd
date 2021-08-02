@@ -1,12 +1,20 @@
 class_name Main
 extends Spatial
 
+var biker_class = preload("res://EnemyBiker.tscn")	
 var tank_class = preload("res://Tank.tscn")	
 var heli_class = preload("res://Heli.tscn")	
-var small_expl_class = preload("res://SmallExplosion.tscn")	
+#var small_expl_class = preload("res://SmallExplosion.tscn")	
 var daytime = true
 
 func _ready():
+	# Preload
+#	self.small_explosion(self)
+
+#	var env = $Player/VRMain/ARVROrigin/ARVRCamera.environment
+#	var sky = env.get("background_sky")
+#	$Tween.interpolate_property(sky ,"sky_top_color", sky.sky_top_color, Color.cyan, 3, Tween.TRANS_LINEAR)
+#	$Tween.start()
 	pass
 
 
@@ -29,9 +37,9 @@ func _process(delta):
 	
 
 func small_explosion(spatial):
-	var i = small_expl_class.instance()
-	add_child(i)
-	i.translation = spatial.global_transform.origin
+#	var i = small_expl_class.instance()
+#	add_child(i)
+#	i.translation = spatial.global_transform.origin
 	pass
 	
 	
@@ -59,13 +67,31 @@ func biker_killed():
 		Globals.NUM_TREES += 4
 		daytime = not daytime
 		var env = $Player/VRMain/ARVROrigin/ARVRCamera.environment
+		var sky = env.get("background_sky")
 		if daytime:
+#			$Tween.interpolate_property(sky ,"sky_top_color", sky.sky_top_color, Color.cyan, 3, Tween.TRANS_LINEAR)
+#			$Tween.start()
+#			$Tween2.interpolate_property(sky ,"sky_horizon_color", sky.sky_top_color, Color.white, 3, Tween.TRANS_LINEAR)
+#			$Tween2.start()
 			env.background_sky.sky_top_color = Color(0, 1, 1)
+			env.background_sky.sky_horizon_color = Color(1, 1, 1)
 		else:
+#			$Tween.interpolate_property(sky ,"sky_top_color", sky.sky_top_color, Color.black, 3, Tween.TRANS_LINEAR)
+#			$Tween.start()
+#			$Tween2.interpolate_property(sky ,"sky_horizon_color", sky.sky_top_color, Color.black, 3, Tween.TRANS_LINEAR)
+#			$Tween2.start()
 			env.background_sky.sky_top_color = Color(0, 0, 0)
+			env.background_sky.sky_horizon_color = Color(0, 0, 0)
 
+		var i = biker_class.instance()
+		i.blue = true
+		i.init()
+		add_child(i)
+		i = biker_class.instance()
+		i.blue = false
+		i.init()
+		add_child(i)
 	pass
-	
 
 
 func _on_TankHeliTimer_timeout():

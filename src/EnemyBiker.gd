@@ -6,7 +6,7 @@ const TURN_SPEED = 2
 const MIN_DIST = 30
 const MAX_DIST = 50
 
-var player : Player
+var player# : Player
 var main
 
 var angle_to_player : float = PI/2
@@ -18,12 +18,17 @@ func _ready():
 	main = get_tree().get_root().get_node("Main")
 	player = main.get_node("Player")
 	
-	$YellowSprites.visible = not blue
-	$BlueSprites.visible = blue
+	init()
 	
 	Globals.num_bikers += 1
 	pass
 
+
+func init():
+	$YellowSprites.visible = not blue
+	$BlueSprites.visible = blue
+	pass
+	
 
 func _process(delta):
 	if player.speed == 0:

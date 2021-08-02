@@ -3,7 +3,7 @@
 [ext_resource path="res://vr/VRMain.gd" type="Script" id=1]
 
 [sub_resource type="ProceduralSky" id=1]
-sky_top_color = Color( 0.0235294, 0.984314, 0.917647, 1 )
+sky_top_color = Color( 0, 1, 1, 1 )
 ground_bottom_color = Color( 0.0313726, 0.976471, 0.0235294, 1 )
 ground_horizon_color = Color( 0.388235, 0.423529, 0.372549, 1 )
 

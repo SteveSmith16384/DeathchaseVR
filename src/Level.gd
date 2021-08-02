@@ -17,15 +17,16 @@ func _process(delta):
 func _on_Timer_timeout():
 	var num_trees = self.get_child_count()
 	if num_trees < Globals.NUM_TREES:
-		create_tree()
+		if player.speed > 0: # Only if player moving otherwise trees will appear on top of each other
+			create_tree()
 		pass
 	pass
 
 
 func create_tree() -> void:
 	var tree = tree_class.instance();
-	self.add_child(tree)
 	place_tree(tree)
+	self.add_child(tree)
 	pass
 	
 	
