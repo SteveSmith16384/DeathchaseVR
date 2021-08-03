@@ -4,7 +4,7 @@ extends Spatial
 var biker_class = preload("res://EnemyBiker.tscn")	
 var tank_class = preload("res://Tank.tscn")	
 var heli_class = preload("res://Heli.tscn")	
-#var small_expl_class = preload("res://SmallExplosion.tscn")	
+var expl_class = preload("res://Explosion.tscn")	
 var daytime = true
 
 func _ready():
@@ -21,12 +21,12 @@ func _ready():
 func _process(delta):
 	if $Player.speed > 0:
 		var controller_basis : Basis = $Player/VRMain.get_controller_orientation()
-		var new_dir = controller_basis.z * -1 # scs new -1
+		var new_dir = controller_basis.z * -1
 		new_dir = $Player.move_dir.normalized().slerp(new_dir, 0.1)
 		$Player.move_dir = new_dir
 		$Player.move_dir.y = 0
 		
-		# Rotate the player, otherwise we're rotating the level in the diatance
+		# Rotate the player, otherwise we're rotating the level in the distance
 		var global_pos = $Player.global_transform.origin
 		var pos = global_pos + ($Player.move_dir * 10)
 		pos.y = $Player.translation.y
@@ -37,9 +37,9 @@ func _process(delta):
 	
 
 func small_explosion(spatial):
-#	var i = small_expl_class.instance()
-#	add_child(i)
-#	i.translation = spatial.global_transform.origin
+	var i = expl_class.instance()
+	add_child(i)
+	i.translation = spatial.global_transform.origin
 	pass
 	
 	

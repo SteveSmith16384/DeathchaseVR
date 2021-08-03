@@ -70,7 +70,6 @@ func get_random_global_spawn_position() -> Vector3:
 func _on_ShootTimer_timeout():
 	if shooting || Globals.AUTO_SHOOT:
 		var rocket = rocket_class.instance();
-		#rocket.move_dir = move_dir.normalized() * -1
 		rocket.translation = $Muzzle.translation
 		rocket.translation.y = 0
 		self.add_child(rocket)

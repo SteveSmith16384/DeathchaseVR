@@ -26,10 +26,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.391219, 0 )
 wait_time = 10.0
 autostart = true
 
-[node name="Tween2" type="Tween" parent="."]
-
-[node name="Tween" type="Tween" parent="."]
-
 [connection signal="entity_left_area" from="Player" to="." method="_on_Player_entity_left_area"]
 [connection signal="controller_pressed" from="Player/VRMain" to="." method="_on_VRMain_controller_pressed"]
 [connection signal="controller_released" from="Player/VRMain" to="." method="_on_VRMain_controller_released"]

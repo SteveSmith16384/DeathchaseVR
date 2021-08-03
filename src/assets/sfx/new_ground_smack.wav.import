@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/new_ground_smack.wav-4559d9ee6bc6c9ff060077e56e1cbd6f.sample"
+
+[deps]
+
+source_file="res://assets/sfx/new_ground_smack.wav"
+dest_files=[ "res://.import/new_ground_smack.wav-4559d9ee6bc6c9ff060077e56e1cbd6f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

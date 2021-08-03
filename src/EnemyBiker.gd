@@ -2,14 +2,14 @@ extends Spatial
 
 export var blue : bool = true
 
-const TURN_SPEED = 2
+const TURN_SPEED = 8
 const MIN_DIST = 30
 const MAX_DIST = 50
 
 var player# : Player
 var main
 
-var angle_to_player : float = PI/2
+var angle_to_player : float = 0#PI/2
 var dist : float = 60
 var rotation_dir = 1
 var fwd_back_dir = -1

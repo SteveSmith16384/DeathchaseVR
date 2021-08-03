@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/handlebars.png" type="Texture" id=2]
-[ext_resource path="res://assets/sfx/08.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sfx/new_ground_smack.wav" type="AudioStream" id=3]
 
 [sub_resource type="SphereShape" id=1]
 radius = 30.0
@@ -77,7 +77,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.183254, -0.759497 )
 shape = SubResource( 2 )
 
 [node name="Audio_Crash" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource( 3 )
 
 [connection signal="area_exited" from="RemovalArea" to="." method="_on_RemovalArea_area_exited"]
 [connection signal="body_shape_exited" from="RemovalArea" to="." method="_on_RemovalArea_body_shape_exited"]
