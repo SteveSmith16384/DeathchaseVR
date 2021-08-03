@@ -9,7 +9,7 @@ const MAX_DIST = 50
 var player# : Player
 var main
 
-var angle_to_player : float = 0#PI/2
+var angle_to_player : float = PI/2
 var dist : float = 60
 var rotation_dir = 1
 var fwd_back_dir = -1
@@ -31,14 +31,14 @@ func init():
 	
 
 func _process(delta):
-	if player.speed == 0:
-		$YellowSprites/Sprite3D_Yellow_Left.visible = false
-		$YellowSprites/Sprite3D_Yellow_Right.visible = false
-		$YellowSprites/Sprite3D_Yellow_Forward.visible = true
-		$BlueSprites/Sprite3D_Blue_Left.visible = false
-		$BlueSprites/Sprite3D_Blue_Right.visible = false
-		$BlueSprites/Sprite3D_Blue_Forward.visible = true
-		return
+#	if player.speed == 0:
+#		$YellowSprites/Sprite3D_Yellow_Left.visible = false
+#		$YellowSprites/Sprite3D_Yellow_Right.visible = false
+#		$YellowSprites/Sprite3D_Yellow_Forward.visible = true
+#		$BlueSprites/Sprite3D_Blue_Left.visible = false
+#		$BlueSprites/Sprite3D_Blue_Right.visible = false
+#		$BlueSprites/Sprite3D_Blue_Forward.visible = true
+#		return
 	
 	if player.speed < player.MAX_SPEED/3:
 		fwd_back_dir = 1

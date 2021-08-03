@@ -65,7 +65,7 @@ func _on_Player_entity_left_area(body):
 func biker_killed():
 	Globals.num_bikers -= 1
 	if Globals.num_bikers <= 0:
-		Globals.NUM_TREES += 4
+		Globals.NUM_TREES += 3
 		daytime = not daytime
 		var env = $Player/VRMain/ARVROrigin/ARVRCamera.environment
 		var sky = env.get("background_sky")
@@ -96,7 +96,7 @@ func biker_killed():
 
 
 func _on_TankHeliTimer_timeout():
-	if Globals.rnd.randf_range(1, 2) == 1:
+	if Globals.rnd.randi_range(1, 2) == 1:
 		if self.has_node("Tank") == false:
 			var i = tank_class.instance()
 			add_child(i)

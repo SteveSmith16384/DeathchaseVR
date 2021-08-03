@@ -1,6 +1,6 @@
 extends Spatial
 
-const SPEED = 13
+const SPEED = 22#13
 
 onready var jet_class = preload("res://RocketJet.tscn")
 
@@ -20,7 +20,7 @@ func _ready():
 func _process(delta):
 	var controller_basis : Basis = vr_main.get_controller_orientation()
 	var new_dir = controller_basis.z * -1
-	new_dir = move_dir.normalized().slerp(new_dir, 0.2)
+	new_dir = move_dir.normalized().slerp(new_dir, 0.4)
 	move_dir = new_dir
 	move_dir.y = 0
 	
