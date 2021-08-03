@@ -4,18 +4,25 @@ const SPEED = 13
 
 onready var jet_class = preload("res://RocketJet.tscn")
 
+var vr_main
 var main : Main
-var player# : Player
-var move_dir = Vector3(0, 0, -1)
+#var player# : Player
+var move_dir = Vector3(0, 0, 1) # Gets overwritten with player's dir
 
 func _ready():
 	main = get_tree().get_root().get_node("Main")
-	player = main.get_node("Player")
+	#player = main.get_node("Player")
+	vr_main = main.get_node("Player/VRMain")
+
 	pass
 	
 	
 func _process(delta):
-	#move_dir = player.move_dir.normalized() * -1
+	var controller_basis : Basis = vr_main.get_controller_orientation()
+	var new_dir = controller_basis.z * -1
+	new_dir = move_dir.normalized().slerp(new_dir, 0.2)
+	move_dir = new_dir
+	move_dir.y = 0
 	
 	var offset = move_dir * (SPEED * delta)
 	var new_pos = self.translation + offset

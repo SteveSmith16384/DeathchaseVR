@@ -7,8 +7,8 @@ onready var rocket_class = preload("res://Rocket.tscn")
 
 signal entity_left_area
 
+var main
 var player_start_y : float
-
 var accel = false
 var shooting = false
 var speed: float = 0
@@ -16,22 +16,22 @@ var move_dir : Vector3 = Vector3(0, 0, 1)
 
 
 func _ready():
+	main = get_tree().get_root().get_node("Main")
 	player_start_y = 0#translation.y
 	pass
 
 
 func _process(delta):
-	# Position player
 	translation.y = self.player_start_y
 	
 	if accel:
 		shooting = true
-		speed += 1
+		speed += 5 * delta
 		if speed > MAX_SPEED:
 			speed = MAX_SPEED
 	else:
 		shooting = false
-		speed -= 1
+		speed -= 10 * delta
 		if speed < 0:
 			speed = 0
 
@@ -70,9 +70,10 @@ func get_random_global_spawn_position() -> Vector3:
 func _on_ShootTimer_timeout():
 	if shooting || Globals.AUTO_SHOOT:
 		var rocket = rocket_class.instance();
-		rocket.translation = $Muzzle.translation
+		rocket.translation = $Muzzle.get_global_transform().origin
 		rocket.translation.y = 0
-		self.add_child(rocket)
+		rocket.move_dir = move_dir
+		main.add_child(rocket)
 	pass
 
 

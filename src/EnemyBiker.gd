@@ -39,6 +39,9 @@ func _process(delta):
 		$BlueSprites/Sprite3D_Blue_Right.visible = false
 		$BlueSprites/Sprite3D_Blue_Forward.visible = true
 		return
+	
+	if player.speed < player.MAX_SPEED/3:
+		fwd_back_dir = 1
 		
 	dist += delta * fwd_back_dir * 2
 	if fwd_back_dir < 0 and dist < MIN_DIST:

@@ -5,6 +5,7 @@ var biker_class = preload("res://EnemyBiker.tscn")
 var tank_class = preload("res://Tank.tscn")	
 var heli_class = preload("res://Heli.tscn")	
 var expl_class = preload("res://Explosion.tscn")	
+
 var daytime = true
 
 func _ready():
