@@ -39,8 +39,9 @@ func _process(delta):
 
 func small_explosion(spatial):
 	var i = expl_class.instance()
-	add_child(i)
-	i.translation = spatial.global_transform.origin
+	# Add to level since that's what moves!
+	$Level.add_child(i)
+	i.translation = spatial.global_transform.origin - $Level.translation
 	pass
 	
 	
@@ -65,37 +66,47 @@ func _on_Player_entity_left_area(body):
 func biker_killed():
 	Globals.num_bikers -= 1
 	if Globals.num_bikers <= 0:
-		Globals.NUM_TREES += 3
-		daytime = not daytime
-		var env = $Player/VRMain/ARVROrigin/ARVRCamera.environment
-		var sky = env.get("background_sky")
-		if daytime:
+		$NextLevelTimer.start()
+	pass
+
+
+func next_level():
+	Globals.NUM_TREES += 3
+	daytime = not daytime
+	var env = $Player/VRMain/ARVROrigin/ARVRCamera.environment
+	var sky = env.get("background_sky")
+	if daytime:
 #			$Tween.interpolate_property(sky ,"sky_top_color", sky.sky_top_color, Color.cyan, 3, Tween.TRANS_LINEAR)
 #			$Tween.start()
 #			$Tween2.interpolate_property(sky ,"sky_horizon_color", sky.sky_top_color, Color.white, 3, Tween.TRANS_LINEAR)
 #			$Tween2.start()
-			env.background_sky.sky_top_color = Color(0, 1, 1)
-			env.background_sky.sky_horizon_color = Color(1, 1, 1)
-		else:
+		env.background_sky.sky_top_color = Color(0, 1, 1)
+		env.background_sky.sky_horizon_color = Color(1, 1, 1)
+	else:
 #			$Tween.interpolate_property(sky ,"sky_top_color", sky.sky_top_color, Color.black, 3, Tween.TRANS_LINEAR)
 #			$Tween.start()
 #			$Tween2.interpolate_property(sky ,"sky_horizon_color", sky.sky_top_color, Color.black, 3, Tween.TRANS_LINEAR)
 #			$Tween2.start()
-			env.background_sky.sky_top_color = Color(0, 0, 0)
-			env.background_sky.sky_horizon_color = Color(0, 0, 0)
+		env.background_sky.sky_top_color = Color(0, 0, 0)
+		env.background_sky.sky_horizon_color = Color(0, 0, 0)
 
-		var i = biker_class.instance()
-		i.blue = true
-		i.init()
-		add_child(i)
-		i = biker_class.instance()
-		i.blue = false
-		i.init()
-		add_child(i)
+	var i = biker_class.instance()
+	i.blue = true
+	i.init()
+	add_child(i)
+	i = biker_class.instance()
+	i.blue = false
+	i.init()
+	add_child(i)
+	
+	Globals.level += 1
 	pass
 
 
 func _on_TankHeliTimer_timeout():
+	if Globals.level <= 1:
+		return
+		
 	if Globals.rnd.randi_range(1, 2) == 1:
 		if self.has_node("Tank") == false:
 			var i = tank_class.instance()
@@ -104,4 +115,10 @@ func _on_TankHeliTimer_timeout():
 		if self.has_node("Heli") == false:
 			var i = heli_class.instance()
 			add_child(i)
+	pass
+
+
+func _on_NextLevelTimer_timeout():
+	$NextLevelTimer.stop()
+	next_level()
 	pass

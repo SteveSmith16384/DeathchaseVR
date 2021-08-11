@@ -10,10 +10,6 @@ func _ready():
 	pass
 	
 	
-func _process(delta):
-	pass
-
-
 func _on_Timer_timeout():
 	var num_trees = self.get_child_count()
 	if num_trees < Globals.NUM_TREES:

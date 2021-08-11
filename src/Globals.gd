@@ -9,6 +9,7 @@ const AUTO_SHOOT = false and !RELEASE_MODE
 
 var NUM_TREES = 14
 var num_bikers = 0
+var level = 1
 
 var rnd : RandomNumberGenerator
 
