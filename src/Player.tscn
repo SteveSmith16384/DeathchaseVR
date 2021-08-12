@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/handlebars.png" type="Texture" id=2]
 [ext_resource path="res://assets/sfx/new_ground_smack.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/cheqflagdash.png" type="Texture" id=4]
+[ext_resource path="res://CheqFlagTyre.tscn" type="PackedScene" id=5]
+[ext_resource path="res://DashboardNeedle.tscn" type="PackedScene" id=6]
 
 [sub_resource type="SphereShape" id=1]
 radius = 30.0
@@ -18,8 +20,21 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, -0.711 )
 texture = ExtResource( 4 )
 
+[node name="DashboardNeedle" parent="CheqFlag" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.436182, -0.498, 0.00999999 )
+
+[node name="DashboardNeedle2" parent="CheqFlag" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.712757, -0.766, 0.00999999 )
+
+[node name="CheqFlagTyre2" parent="CheqFlag" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.636, -0.095, 0.01 )
+
+[node name="CheqFlagTyre" parent="CheqFlag" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.64, -0.095, 0.01 )
+
 [node name="Motorbike" type="Sprite3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.782165, -0.71074 )
+visible = false
 texture = ExtResource( 2 )
 
 [node name="RemovalArea" type="Area" parent="."]
