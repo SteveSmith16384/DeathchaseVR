@@ -74,7 +74,7 @@ func next_level():
 	Globals.NUM_TREES += 3
 	daytime = not daytime
 	var env = $Player/VRMain/ARVROrigin/ARVRCamera.environment
-	var sky = env.get("background_sky")
+	#var sky = env.get("background_sky")
 	if daytime:
 #			$Tween.interpolate_property(sky ,"sky_top_color", sky.sky_top_color, Color.cyan, 3, Tween.TRANS_LINEAR)
 #			$Tween.start()
