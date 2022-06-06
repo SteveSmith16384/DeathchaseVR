@@ -20,7 +20,7 @@ blue = false
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.10544, 0 )
 
 [node name="VRMain" parent="Player" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.391219, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.785646, 0 )
 
 [node name="TankHeliTimer" type="Timer" parent="."]
 wait_time = 10.0
