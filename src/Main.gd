@@ -9,13 +9,6 @@ var expl_class = preload("res://Explosion.tscn")
 var daytime = true
 
 func _ready():
-	# Preload
-#	self.small_explosion(self)
-
-#	var env = $Player/VRMain/ARVROrigin/ARVRCamera.environment
-#	var sky = env.get("background_sky")
-#	$Tween.interpolate_property(sky ,"sky_top_color", sky.sky_top_color, Color.cyan, 3, Tween.TRANS_LINEAR)
-#	$Tween.start()
 	pass
 
 
@@ -58,7 +51,7 @@ func _on_VRMain_controller_released():
 
 
 func _on_Player_entity_left_area(body):
-	if "IS_TREE" in body:
+	if body.is_in_group("tree"):
 		$Level.place_tree(body)
 	pass
 

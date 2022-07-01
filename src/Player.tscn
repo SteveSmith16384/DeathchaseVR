@@ -102,7 +102,6 @@ stream = ExtResource( 3 )
 
 [node name="Audio_Engine" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-autoplay = true
 
 [connection signal="area_exited" from="RemovalArea" to="." method="_on_RemovalArea_area_exited"]
 [connection signal="body_shape_exited" from="RemovalArea" to="." method="_on_RemovalArea_body_shape_exited"]

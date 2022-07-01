@@ -1,12 +1,38 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://TextTest.gd" type="Script" id=1]
+[sub_resource type="GDScript" id=5]
+script/source = "extends CSGBox
+
+# The box's label.
+onready var label: Label = get_node(\"Label\")
+# The player's camera.
+onready var camera: Camera = get_viewport().get_camera()
+
+# Aligns the position of the label to always face the camera.
+#
+# `point` - The position to align the label to.
+func position_label(point: Vector3):
+	var offset = Vector2(label.get_size().x / 2, 0)
+	label.rect_position = camera.unproject_position(point) - offset
+	
+
+# Every frame we check to see if the label is behind the camera or the label is
+# out of the render distance and if so we return early. Otherwise, we position
+# the label on the cube so that it's always facing the camera.
+#
+# `_delta` - The difference in time between the last frame and the current frame.
+func _process(_delta):
+	var pos: Vector3 = global_transform.origin
+	
+	# If the point is behind the camera we hide the label and return early.
+	if camera.is_position_behind(pos): return
+	
+	position_label(pos)
+	
+	
+"
 
 [sub_resource type="Theme" id=3]
-
-[sub_resource type="StyleBoxLine" id=4]
-color = Color( 0.270588, 0.729412, 0.105882, 1 )
-thickness = 5
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://assets/fonts/SF Distant Galaxy.ttf"
@@ -15,15 +41,19 @@ font_path = "res://assets/fonts/SF Distant Galaxy.ttf"
 size = 32
 font_data = SubResource( 1 )
 
+[sub_resource type="StyleBoxLine" id=4]
+color = Color( 0.270588, 0.729412, 0.105882, 1 )
+thickness = 5
+
 [node name="TextTest" type="CSGBox"]
-script = ExtResource( 1 )
+script = SubResource( 5 )
 
 [node name="Label" type="Label" parent="."]
 margin_right = 128.0
 margin_bottom = 69.0
 theme = SubResource( 3 )
-custom_styles/normal = SubResource( 4 )
 custom_fonts/font = SubResource( 2 )
+custom_styles/normal = SubResource( 4 )
 text = "HELLO!HELLO!HELLO!HELLO!HELLO!"
 __meta__ = {
 "_edit_use_anchors_": false

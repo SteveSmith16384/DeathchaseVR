@@ -31,6 +31,8 @@ func _process(delta):
 		speed += 5 * delta
 		if speed > MAX_SPEED:
 			speed = MAX_SPEED
+		if $Audio_Engine.playing == false:
+			$Audio_Engine.play()
 	else:
 		shooting = false
 		speed -= 10 * delta
