@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/handlebars.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/cheqflagdash.png" type="Texture" id=4]
 [ext_resource path="res://CheqFlagTyre.tscn" type="PackedScene" id=5]
 [ext_resource path="res://DashboardNeedle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sfx/engine-loop-1-normalized.wav" type="AudioStream" id=7]
 
 [sub_resource type="SphereShape" id=1]
 radius = 30.0
@@ -99,6 +100,11 @@ shape = SubResource( 2 )
 [node name="Audio_Crash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
+[node name="Audio_Engine" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
+
 [connection signal="area_exited" from="RemovalArea" to="." method="_on_RemovalArea_area_exited"]
 [connection signal="body_shape_exited" from="RemovalArea" to="." method="_on_RemovalArea_body_shape_exited"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
+[connection signal="finished" from="Audio_Engine" to="." method="_on_Audio_Engine_finished"]

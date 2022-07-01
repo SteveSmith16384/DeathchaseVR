@@ -18,6 +18,8 @@ var move_dir : Vector3 = Vector3(0, 0, 1)
 func _ready():
 	main = get_tree().get_root().get_node("Main")
 	player_start_y = 0#translation.y
+	
+#	$Audio_Engine.loop
 	pass
 
 
@@ -38,7 +40,10 @@ func _process(delta):
 	if Globals.AUTO_TURN:
 		speed = 3
 		#self.rotate_y(0.1 * delta)
-		
+	
+	var scale:float = speed/MAX_SPEED
+	scale = scale / 2
+	$Audio_Engine.pitch_scale = scale + 0.5
 	pass
 
 
@@ -82,3 +87,8 @@ func hit_tree():
 	speed = 0
 	pass
 
+
+
+func _on_Audio_Engine_finished():
+	$Audio_Engine.play()
+	pass
