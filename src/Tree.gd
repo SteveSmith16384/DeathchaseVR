@@ -1,7 +1,7 @@
 #class_name Tree
 extends Spatial
 
-const IS_TREE = true
+#const IS_TREE = true
 
 
 func _on_Area_area_entered(area):
