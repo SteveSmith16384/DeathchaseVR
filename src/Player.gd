@@ -17,32 +17,33 @@ var move_dir : Vector3 = Vector3(0, 0, 1)
 
 func _ready():
 	main = get_tree().get_root().get_node("Main")
-	player_start_y = 0#translation.y
-	
-#	$Audio_Engine.loop
+	player_start_y = 0
 	pass
 
 
 func _process(delta):
 	translation.y = self.player_start_y
 	
-	if accel:
-		shooting = true
-		speed += 5 * delta
-		if speed > MAX_SPEED:
-			speed = MAX_SPEED
-		if $Audio_Engine.playing == false:
-			$Audio_Engine.play()
-	else:
-		shooting = false
-		speed -= 10 * delta
-		if speed < 0:
-			speed = 0
-
-	if Globals.AUTO_TURN:
-		speed = 3
-		#self.rotate_y(0.1 * delta)
+	if Globals.TEST_GAME:
+		self.accelerate()
+#		self.rotate_y(1 * delta)
 	
+	if main.in_game:
+		if accel:
+			shooting = true
+			speed += 5 * delta
+			if speed > MAX_SPEED:
+				speed = MAX_SPEED
+				Globals.score += delta * 2
+			if $Audio_Engine.playing == false:
+				$Audio_Engine.play()
+		else:
+			shooting = false
+			speed -= 10 * delta
+			if speed < 0:
+				speed = 0
+
+	# Engine sound
 	var scale:float = speed/MAX_SPEED
 	scale = scale / 2
 	$Audio_Engine.pitch_scale = scale + 0.5
@@ -50,16 +51,14 @@ func _process(delta):
 
 
 func accelerate():
+	if main.in_game == false:
+		main.start_game()
 	accel = true
 	pass
 	
 	
 func brake():
 	accel = false
-	pass
-
-
-func _on_RemovalArea_body_shape_exited(body_id, body, body_shape, local_shape):
 	pass
 
 
@@ -85,12 +84,16 @@ func _on_ShootTimer_timeout():
 
 
 func hit_tree():
+	$Audio_Engine.stop()
 	$Audio_Crash.play()
 	speed = 0
+	Globals.lives -= 1
+	if Globals.lives <= 0:
+		main.end_of_game()
 	pass
 
 
-
 func _on_Audio_Engine_finished():
-	$Audio_Engine.play()
+	if speed > 0:
+		$Audio_Engine.play()
 	pass

@@ -35,7 +35,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.636, -0.095, -0.01 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.64, -0.095, 0.01 )
 
 [node name="Motorbike" type="Sprite3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.782165, -0.71074 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.936363, -0.71074 )
 texture = ExtResource( 2 )
 
 [node name="RemovalArea" type="Area" parent="."]
@@ -104,6 +104,5 @@ stream = ExtResource( 3 )
 stream = ExtResource( 7 )
 
 [connection signal="area_exited" from="RemovalArea" to="." method="_on_RemovalArea_area_exited"]
-[connection signal="body_shape_exited" from="RemovalArea" to="." method="_on_RemovalArea_body_shape_exited"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
 [connection signal="finished" from="Audio_Engine" to="." method="_on_Audio_Engine_finished"]

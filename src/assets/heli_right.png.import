@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/heli_right.png-bc5a44a71cc275b3455cf05f736b7719.s3tc.stex"
 path.etc2="res://.import/heli_right.png-bc5a44a71cc275b3455cf05f736b7719.etc2.stex"
+path.etc="res://.import/heli_right.png-bc5a44a71cc275b3455cf05f736b7719.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/heli_right.png"
-dest_files=[ "res://.import/heli_right.png-bc5a44a71cc275b3455cf05f736b7719.s3tc.stex", "res://.import/heli_right.png-bc5a44a71cc275b3455cf05f736b7719.etc2.stex" ]
+dest_files=[ "res://.import/heli_right.png-bc5a44a71cc275b3455cf05f736b7719.s3tc.stex", "res://.import/heli_right.png-bc5a44a71cc275b3455cf05f736b7719.etc2.stex", "res://.import/heli_right.png-bc5a44a71cc275b3455cf05f736b7719.etc.stex" ]
 
 [params]
 

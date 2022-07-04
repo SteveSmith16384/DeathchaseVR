@@ -123,7 +123,7 @@ func _on_RightController_button_release(button: int) -> void:
 	print ("RightButton release: " + str(button))
  
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var left_controller_id = 100
 	var thumbstick_x_axis_id = 2
 	var thumbstick_y_axis_id = 3

@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/cheqflagdash.png-cc71c228f4f5bcfee75a5d10198c2e9b.s3tc.stex"
 path.etc2="res://.import/cheqflagdash.png-cc71c228f4f5bcfee75a5d10198c2e9b.etc2.stex"
+path.etc="res://.import/cheqflagdash.png-cc71c228f4f5bcfee75a5d10198c2e9b.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/cheqflagdash.png"
-dest_files=[ "res://.import/cheqflagdash.png-cc71c228f4f5bcfee75a5d10198c2e9b.s3tc.stex", "res://.import/cheqflagdash.png-cc71c228f4f5bcfee75a5d10198c2e9b.etc2.stex" ]
+dest_files=[ "res://.import/cheqflagdash.png-cc71c228f4f5bcfee75a5d10198c2e9b.s3tc.stex", "res://.import/cheqflagdash.png-cc71c228f4f5bcfee75a5d10198c2e9b.etc2.stex", "res://.import/cheqflagdash.png-cc71c228f4f5bcfee75a5d10198c2e9b.etc.stex" ]
 
 [params]
 

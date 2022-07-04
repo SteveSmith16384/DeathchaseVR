@@ -11,9 +11,7 @@ var move_dir = Vector3(0, 0, 1) # Gets overwritten with player's dir
 
 func _ready():
 	main = get_tree().get_root().get_node("Main")
-	#player = main.get_node("Player")
 	vr_main = main.get_node("Player/VRMain")
-
 	pass
 	
 	

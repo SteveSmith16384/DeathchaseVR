@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/cheqflagtyre.png-7815e9533f97aab9d633ee9dc80e5ca1.s3tc.stex"
 path.etc2="res://.import/cheqflagtyre.png-7815e9533f97aab9d633ee9dc80e5ca1.etc2.stex"
+path.etc="res://.import/cheqflagtyre.png-7815e9533f97aab9d633ee9dc80e5ca1.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/cheqflagtyre.png"
-dest_files=[ "res://.import/cheqflagtyre.png-7815e9533f97aab9d633ee9dc80e5ca1.s3tc.stex", "res://.import/cheqflagtyre.png-7815e9533f97aab9d633ee9dc80e5ca1.etc2.stex" ]
+dest_files=[ "res://.import/cheqflagtyre.png-7815e9533f97aab9d633ee9dc80e5ca1.s3tc.stex", "res://.import/cheqflagtyre.png-7815e9533f97aab9d633ee9dc80e5ca1.etc2.stex", "res://.import/cheqflagtyre.png-7815e9533f97aab9d633ee9dc80e5ca1.etc.stex" ]
 
 [params]
 

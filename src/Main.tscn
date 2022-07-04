@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://vr/VRMain.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Main.gd" type="Script" id=3]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://EnemyBiker.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/fonts/SF Distant Galaxy.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 6 )
 
 [node name="Main" type="Spatial"]
 script = ExtResource( 3 )
@@ -22,15 +29,35 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.10544, 0 )
 [node name="VRMain" parent="Player" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.785646, 0 )
 
+[node name="TextConsole" type="Sprite3D" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.179441, 0.368285, -0.750526 )
+double_sided = false
+texture = SubResource( 1 )
+
 [node name="TankHeliTimer" type="Timer" parent="."]
 wait_time = 10.0
-autostart = true
 
 [node name="NextLevelTimer" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 400, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Label" type="Label" parent="Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 2 )
+text = "LIVES: 3  LEVEL: 2  SCORE:9999"
+
+[node name="RestartGameTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [connection signal="entity_left_area" from="Player" to="." method="_on_Player_entity_left_area"]
 [connection signal="controller_pressed" from="Player/VRMain" to="." method="_on_VRMain_controller_pressed"]
 [connection signal="controller_released" from="Player/VRMain" to="." method="_on_VRMain_controller_released"]
 [connection signal="timeout" from="TankHeliTimer" to="." method="_on_TankHeliTimer_timeout"]
 [connection signal="timeout" from="NextLevelTimer" to="." method="_on_NextLevelTimer_timeout"]
+[connection signal="timeout" from="RestartGameTimer" to="." method="_on_RestartGameTimer_timeout"]

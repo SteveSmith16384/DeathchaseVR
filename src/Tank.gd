@@ -29,6 +29,7 @@ func _process(delta):
 
 
 func hit_by_rocket():
+	main.inc_score(5000)
 	main.small_explosion(self)
 	self.queue_free()
 	pass

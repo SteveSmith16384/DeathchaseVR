@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/dashboard_needle.png-a8f84f10a04681ec2c7e51a7166b1b72.s3tc.stex"
 path.etc2="res://.import/dashboard_needle.png-a8f84f10a04681ec2c7e51a7166b1b72.etc2.stex"
+path.etc="res://.import/dashboard_needle.png-a8f84f10a04681ec2c7e51a7166b1b72.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/dashboard_needle.png"
-dest_files=[ "res://.import/dashboard_needle.png-a8f84f10a04681ec2c7e51a7166b1b72.s3tc.stex", "res://.import/dashboard_needle.png-a8f84f10a04681ec2c7e51a7166b1b72.etc2.stex" ]
+dest_files=[ "res://.import/dashboard_needle.png-a8f84f10a04681ec2c7e51a7166b1b72.s3tc.stex", "res://.import/dashboard_needle.png-a8f84f10a04681ec2c7e51a7166b1b72.etc2.stex", "res://.import/dashboard_needle.png-a8f84f10a04681ec2c7e51a7166b1b72.etc.stex" ]
 
 [params]
 
